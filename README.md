@@ -1,13 +1,13 @@
 # STACK
-● React
-● Typescript
-● CSS: styled-components/tailwindcss
-● UI Testing: Jest, react-testing library, Cypress, PlayWRight, etc
-● Graphql (react-apollo/react-query)
-● Python
-● Web Framework (Django , Flask ó FastAPI)
-● ORM (Django, SQLAlchemy ó PonyORM)
-● Unit tests
+[x] React
+[x] Typescript
+[x] CSS: styled-components/tailwindcss
+[ ] UI Testing: Jest, react-testing library, Cypress, PlayWRight, etc
+[ ] Graphql (react-apollo/react-query)
+[x] Python
+[x] Web Framework (Django , Flask ó FastAPI)
+[x] ORM (Django, SQLAlchemy ó PonyORM)
+[ ] Unit tests
 # RESOURCES
 ● Wireframes
 ● Lista de cursos
