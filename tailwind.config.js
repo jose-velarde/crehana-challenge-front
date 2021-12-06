@@ -2,10 +2,20 @@ module.exports = {
   purge: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
   darkMode: false, // or 'media' or 'class'
   theme: {
-    extend: {},
+    extend: {
+      transitionProperty:{
+        'maxHeight': 'max-height',
+        'flex' : 'flex',
+      },
+      maxWidth:{
+        'screen': '100vw'
+      }
+    },
   },
   variants: {
-    extend: {},
+    extend: {
+      width: ['group-hover'],
+    },
   },
   plugins: [],
 }
