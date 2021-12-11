@@ -7,7 +7,7 @@ const Button = ({
   onClick,
 }: {
   outline?: boolean
-  disabled?: boolean
+  disabled?: boolean | undefined
   children: string | JSX.Element
   className?: string
   type?: 'button' | 'submit' | 'reset' | undefined

@@ -4,20 +4,27 @@ import { Ifilter } from '../types/types'
 import { useState } from 'react'
 import { IoOptionsOutline } from 'react-icons/io5'
 
-const categorias = [
-  'Categoría 1',
-  'Categoría 2',
-  'Categoría 3',
-  'Categoría 4',
-  'Categoría 5',
+// const categoryFilter =
+// const subcategoryFilter =
+const levelFilterOptions = [
+  'Todos',
+  'Introductorio',
+  'Intermedio',
+  'Avanzado',
+  'Completo',
 ]
+const priceFilterOptions = ['Todos', '30', '35', '40', '45', '50', '55']
 
 const Filter = ({
-  onSubmit,
+  onClick,
+  categories,
+  subcategories,
   filter,
   setFilter,
 }: {
-  onSubmit: () => void
+  categories: string[]
+  subcategories: string[]
+  onClick: () => void
   filter: {
     categoryFilter: string
     subcategoryFilter: string
@@ -27,7 +34,7 @@ const Filter = ({
   setFilter: (arg: Ifilter) => void
 }) => {
   const [collapse, setCollapse] = useState(false)
-  console.log(collapse)
+
   return (
     <>
       <div className="md:hidden">
@@ -42,10 +49,11 @@ const Filter = ({
         </Button>
       </div>
       <form
-        onSubmit={onSubmit}
         className={
-          (collapse ? 'max-h-96' : 'max-h-0') +
-          ' md:max-h-96 max-h-0 h-auto overflow-hidden flex flex-col md:flex-row md:items-center md:justify-center gap-2 transition-maxHeight ease-linear duration-300'
+          (collapse
+            ? 'max-h-96 opacity-100'
+            : ' opacity-0 max-h-0 -translate-y-4') +
+          ' md:max-h-96 md:opacity-100 md:-translate-y-0 h-auto overflow-hidden flex flex-col md:flex-row md:items-center md:justify-center gap-2  transition-all ease-linear duration-300'
         }
       >
         <Select
@@ -53,32 +61,34 @@ const Filter = ({
           filterId={'categoryFilter'}
           setFilter={setFilter}
           label="CATEGORÍA"
-          options={categorias}
+          options={categories}
         />
         <Select
           filter={filter}
           filterId={'subcategoryFilter'}
           setFilter={setFilter}
           label="SUBCATEGORÍA"
-          options={categorias}
+          options={subcategories}
         />
         <Select
           filter={filter}
           filterId={'levelFilter'}
           setFilter={setFilter}
           label="NIVEL"
-          options={categorias}
+          options={levelFilterOptions}
         />
         <Select
           filter={filter}
           filterId={'priceFilter'}
           setFilter={setFilter}
           label="PRECIO"
-          options={categorias}
+          options={priceFilterOptions}
         />
         <div className="w-full">
           <div className="font-bold capitalize">&nbsp;</div>
-          <Button type="submit">Aplicar filtros</Button>
+          <Button type="button" onClick={onClick}>
+            Aplicar filtros
+          </Button>
         </div>
       </form>
     </>
