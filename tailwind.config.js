@@ -5,8 +5,7 @@ module.exports = {
   theme: {
     extend: {
       transitionProperty:{
-        'maxHeight': 'max-height',
-        'flex' : 'flex',
+        'maxHeight-opacity-transform': 'max-height, opacity, transform',
       },
       maxWidth:{
         'screen': '100vw'
