@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { FaGlobe } from 'react-icons/fa'
-import AnimatedLink from './animatedLink'
-import ButtonLink from './buttonLink'
+import AnimatedLink from '../animatedLink'
+import ButtonLink from '../buttonLink'
 
 const Header = () => {
   return (
