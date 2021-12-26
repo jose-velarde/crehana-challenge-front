@@ -5,16 +5,16 @@ import ButtonLink from './buttonLink'
 
 const Header = () => {
   return (
-    <div className="w-full">
-      <header className="dark:bg-gray-700">
-        <nav className="flex justify-between w-full p-4 text-xl dark:text-white dark:bg-gray-900">
+    <div className="w-full ">
+      <header className="flex overflow-x-hidden justify-center dark:bg-gray-700">
+        <nav className="flex justify-between p-4 w-10/12 text-xl dark:text-white dark:bg-gray-900">
           <Link href="/">
-            <a className="inline-flex items-center text-2xl font-bold tracking-wider gap-x-2">
+            <a className="inline-flex gap-x-2 items-center text-2xl font-bold tracking-wider">
               <FaGlobe />
               Crashcourse
             </a>
           </Link>
-          <div className="flex md:items-center md:w-auto gap-x-6">
+          <div className="flex gap-x-6 md:items-center md:w-auto">
             <div className="hidden md:flex gap-x-4">
               <AnimatedLink path="/" pathText="Home" />
               <AnimatedLink path="/staff" pathText="Staff" />
