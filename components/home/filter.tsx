@@ -1,7 +1,6 @@
-import Select from '../components/select'
-import Button from '../components/button'
-import { Ifilter } from '../types/types'
-import { useState } from 'react'
+import Select from './select'
+import Button from '../button'
+import { Ifilter } from '../../types/types'
 import { IoOptionsOutline } from 'react-icons/io5'
 
 // const categoryFilter =
@@ -33,27 +32,30 @@ const Filter = ({
   }
   setFilter: (arg: Ifilter) => void
 }) => {
-  const [collapse, setCollapse] = useState(false)
-
   return (
     <>
-      <div className="md:hidden">
-        <Button
-          outline={true}
-          onClick={() => setCollapse((prevState) => !prevState)}
-        >
+      <input
+        type="checkbox"
+        className="peer hidden z-50 "
+        id="filter-collapse-button"
+        name="filter-collapse"
+      />
+      <label
+        htmlFor="filter-collapse-button"
+        className="block md:hidden cursor-pointer"
+      >
+        <Button className="active:pointer-events-none" outline={true}>
           <div className="inline-flex items-center">
             <IoOptionsOutline />
             Filtrar por
           </div>
         </Button>
-      </div>
+      </label>
       <form
         className={
-          (collapse
-            ? 'max-h-96 opacity-100'
-            : ' opacity-0 max-h-0 -translate-y-4') +
-          ' md:max-h-96 md:opacity-100 md:-translate-y-0 h-auto overflow-hidden flex flex-col md:flex-row md:items-center md:justify-center gap-2  transition-all ease-linear duration-300'
+          'peer-checked:max-h-96 peer-checked:opacity-100 peer-checked:translate-y-0 ' +
+          'opacity-0 max-h-0 -translate-y-4 md:max-h-96 md:opacity-100 md:-translate-y-0 h-auto overflow-hidden flex ' +
+          'flex-col md:flex-row md:items-center transition-all md:justify-center gap-2 ease-linear duration-300'
         }
       >
         <Select
