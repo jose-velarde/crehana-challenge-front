@@ -12,7 +12,7 @@ const AnimatedLink = ({
       <Link href={path}>
         <a>{pathText}</a>
       </Link>
-      <div className="block w-0 h-1 m-auto -ml-5 transition-all ease-linear transform translate-x-5 bg-transparent content-none group-hover:bg-gray-900 group-hover:w-full" />
+      <div className="block m-auto -ml-5 w-0 group-hover:w-full h-1 content-none bg-transparent group-hover:bg-gray-900 transition-all ease-linear translate-x-5" />
     </div>
   )
 }

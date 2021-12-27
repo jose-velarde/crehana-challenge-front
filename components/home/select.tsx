@@ -34,9 +34,9 @@ const Select = ({
           id={label}
           className="block py-2 px-4 pr-8 w-full h-full leading-tight text-gray-600 bg-white focus:bg-white rounded-lg border border-gray-400 focus:border-gray-500 focus:outline-none appearance-none"
         >
-          {options.map((option) => {
+          {options.map((option, index) => {
             return (
-              <option key={option} value={option}>
+              <option key={option + index} value={option}>
                 {option}
               </option>
             )

@@ -31,7 +31,7 @@ const CourseCard = ({ cardData }: { cardData: Icourse }) => {
           </div>
           <div className="text-gray-500 line-through">USD${cardData.price}</div>
         </div>
-        <ButtonLink path={'/courses/' + cardData.id} pathText="Comprar ahora" />
+        <ButtonLink path={'/courses/' + cardData.id}>Comprar ahora</ButtonLink>
       </div>
     </div>
   )

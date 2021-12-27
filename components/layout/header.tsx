@@ -22,8 +22,10 @@ const Header = () => {
               <AnimatedLink path="/contact" pathText="Contact" />
             </div>
             <div className="flex gap-x-2 ">
-              <ButtonLink path="/login" pathText="Log in" />
-              <ButtonLink outline={true} path="/signup" pathText="Sign Up" />
+              <ButtonLink path="/login">Login</ButtonLink>
+              <ButtonLink outline={true} path="/signup">
+                Sign Up
+              </ButtonLink>
             </div>
           </div>
         </nav>
