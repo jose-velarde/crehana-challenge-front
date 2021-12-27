@@ -18,3 +18,19 @@ a {
 * {
   box-sizing: border-box;
 }
+
+@layer base {
+  h1 {
+    @apply text-5xl font-bold;
+  }
+  h2 {
+    @apply text-4xl font-bold md:text-5xl;
+  }
+  h3 {
+    @apply text-3xl font-bold;
+  }
+  h4 {
+    @apply text-2xl font-extrabold text-gray-900;
+  }
+  /* ... */
+}
