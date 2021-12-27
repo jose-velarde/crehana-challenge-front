@@ -65,6 +65,10 @@ npm i --save-dev @typescript-eslint/eslint-plugin@4.33.0
 ```console
 npm install -D tailwindcss@latest postcss@latest autoprefixer@latest
 npx tailwindcss init -p
+npm install @tailwindcss/forms@latest
+
+npm install formik --save
+npm install yup --save
 
 ```
 https local dev server
