@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import {
   FaAt,
   FaEye,
@@ -12,15 +12,32 @@ import {
 import Button from '../components/button'
 import { Formik } from 'formik'
 import * as Yup from 'yup'
+import axios from 'axios'
+
+axios.defaults.withCredentials = true
 
 const Login = () => {
   const [showPassword, setShowPasword] = useState(false)
+  const [csrfToken, setCrsfToken] = useState('')
 
+  useEffect(() => {
+    axios
+      .get(process.env.AUTH + 'crsf')
+      .then((res)=>{
+        const token = res.headers["X-CSRFToken"]
+        console.log(res)
+        setCrsfToken(token)
+      })
+      .catch((err)=>{
+        console.error(err)
+      })
+  }, [])
+  console.log(csrfToken)
   return (
-    <div className="flex flex-col justify-center items-center min-h-screen bg-white sm:bg-gray-200">
-      <div className="py-8 px-8 sm:px-12 w-full xs:w-full sm:w-8/12 md:w-7/12 lg:w-7/12 xl:w-2/6 h-screen sm:h-auto bg-white shadow-none sm:shadow-lg">
+    <div className="flex flex-col justify-center items-center py-10 bg-white sm:bg-gray-200">
+      <div className="py-8 px-8 sm:px-12 w-full xs:w-full sm:w-8/12 md:w-7/12 lg:w-7/12 xl:w-2/6 sm:h-auto bg-white shadow-none sm:shadow-lg">
         <div className="p-4 w-full text-3xl font-bold text-center text-gray-600">
-          LOGIN
+          Iniciar sesión
         </div>
         <div
           className="my-3 w-full bg-gray-200"
@@ -95,7 +112,7 @@ const Login = () => {
                         ? 'focus:border-red-600'
                         : 'focus:border-black')
                     }
-                    placeholder="Password"
+                    placeholder="Contraseña"
                     onChange={handleChange}
                     onBlur={handleBlur}
                     value={values.password}
