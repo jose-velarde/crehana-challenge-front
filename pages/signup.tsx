@@ -9,11 +9,8 @@ const Login = () => {
   const [showPassword, setShowPasword] = useState(false)
   const [showConfirmPassword, setConfirmShowPasword] = useState(false)
 
-  const [avatar, setAvatar] = useState()
+  const [avatar, setAvatar] = useState<string>()
 
-  // const handleImageChange = (e: React.ChangeEvent) => {
-  //   setPicture(URL.createObjectURL(e.target.files[0]))
-  // }
   return (
     <div className="flex flex-col justify-center items-center py-10 bg-white sm:bg-gray-200">
       <div className="py-8 px-8 sm:px-12 w-full xs:w-full sm:w-8/12 md:w-7/12 lg:w-7/12 xl:w-2/6 sm:h-auto bg-white shadow-none sm:shadow-lg">
@@ -90,7 +87,11 @@ const Login = () => {
                       name="avatar"
                       accept="image/*"
                       onChange={(e) => {
-                        setAvatar(URL.createObjectURL(e.target.files[0]))
+                        setAvatar(
+                          URL.createObjectURL(
+                            e.target.files ? e.target.files[0] : new Blob()
+                          )
+                        )
                       }}
                       // value={avatar}
                     />
