@@ -15,7 +15,7 @@ export const UserComment = ({
       <div className="flex flex-wrap">
         <div className="w-16 h-16 bg-gray-300 rounded-xl"></div>
         <div className="flex flex-col gap-2 justify-between py-2 px-3">
-          <div className="">{user}</div>
+          <span className="">{user}</span>
           <StarsScore size={Math.floor(score)} />
         </div>
       </div>

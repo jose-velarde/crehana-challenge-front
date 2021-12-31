@@ -122,8 +122,8 @@ const Course = () => {
               <FaUserCircle className="text-gray-400" size={64} />
             </div>
             <div className="flex flex-col gap-1 justify-center">
-              <div className="font-bold ">{course?.username}</div>
-              <div className="">Cargo profesor</div>
+              <span className="font-bold ">{course?.username}</span>
+              <span className="">Cargo profesor</span>
             </div>
           </div>
           <div className="flex gap-20">
@@ -204,7 +204,7 @@ const Course = () => {
             {mock.topics.map((topic) => {
               return (
                 <div key={'topic' + count}>
-                  <div className="font-bold">{topic.chapter}</div>
+                  <h5 className="font-bold">{topic.chapter}</h5>
                   <ul>
                     {topic.content.map((item) => {
                       count += 1
@@ -257,9 +257,9 @@ const Course = () => {
               return index == 0 ? (
                 <div
                   key={'project' + index}
-                  className="aspect-square flex col-span-2 row-span-2 justify-start items-end p-2 h-80 bg-gray-400 rounded-xl transition-all hover:scale-105"
+                  className="aspect-square flex col-span-2 row-span-2 justify-start items-end p-2 bg-gray-400 rounded-xl transition-all hover:scale-105"
                 >
-                  <span className="aspect-square inline-flex gap-2 items-center">
+                  <span className=" inline-flex gap-2 items-center">
                     <FaUserCircle size={24} className="text-gray-700 " />
                     {project.user}
                   </span>
@@ -267,9 +267,9 @@ const Course = () => {
               ) : index <= 3 ? (
                 <div
                   key={'project' + index}
-                  className="flex justify-start items-end p-2 bg-gray-400 rounded-xl transition-all hover:scale-105"
+                  className="aspect-square flex justify-start items-end p-2 bg-gray-400 rounded-xl transition-all hover:scale-105"
                 >
-                  <span className="aspect-square inline-flex gap-2 items-center">
+                  <span className=" inline-flex gap-2 items-center">
                     <FaUserCircle size={24} className="text-gray-700 " />
                     {project.user}
                   </span>
@@ -278,7 +278,7 @@ const Course = () => {
                 <a
                   key={'project' + index}
                   href=""
-                  className="flex justify-center items-center bg-gray-700 rounded-xl transition-all hover:scale-105"
+                  className="aspect-square flex justify-center items-center bg-gray-700 rounded-xl transition-all hover:scale-105"
                 >
                   <span className="text-6xl font-bold ">
                     +{mock.projects.length - 4}
@@ -307,7 +307,7 @@ const Course = () => {
                     course?.course_score ? Math.floor(course?.course_score) : 0
                   }
                 />
-                <div className="flex justify-center">Media total</div>
+                <span className="flex justify-center">Media total</span>
               </div>
             </div>
             <div className="flex flex-col justify-around p-2 w-full">

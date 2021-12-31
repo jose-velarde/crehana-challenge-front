@@ -36,15 +36,12 @@ const Filter = ({
     <>
       <input
         type="checkbox"
-        className="peer hidden z-50 "
+        className="peer hidden"
         id="filter-collapse-button"
         name="filter-collapse"
       />
-      <label
-        htmlFor="filter-collapse-button"
-        className="block md:hidden cursor-pointer"
-      >
-        <Button className="active:pointer-events-none" outline={true}>
+      <label htmlFor="filter-collapse-button" className="block md:hidden">
+        <Button className=" active:pointer-events-none " outline={true}>
           <div className="inline-flex items-center">
             <IoOptionsOutline />
             Filtrar por
@@ -53,9 +50,9 @@ const Filter = ({
       </label>
       <form
         className={
-          'peer-checked:max-h-96 peer-checked:opacity-100 peer-checked:translate-y-0 ' +
           'opacity-0 max-h-0 -translate-y-4 md:max-h-96 md:opacity-100 md:-translate-y-0 h-auto overflow-hidden flex ' +
-          'flex-col md:flex-row md:items-center transition-all md:justify-center gap-2 ease-linear duration-300'
+          'flex-col md:flex-row md:items-center transition-all md:justify-center gap-2 ease-linear duration-300 ' +
+          'peer-checked:max-h-96 peer-checked:opacity-100 peer-checked:translate-y-0 '
         }
       >
         <Select

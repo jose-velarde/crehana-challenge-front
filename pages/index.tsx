@@ -122,7 +122,7 @@ const Home: NextPage = () => {
   }
 
   return (
-    <main className="flex overflow-x-hidden flex-col gap-y-2 justify-center items-center">
+    <main className="flex overflow-x-hidden flex-col gap-y-5 justify-center items-center">
       <div
         className="w-full h-96 bg-center bg-cover"
         style={{
@@ -149,7 +149,7 @@ const Home: NextPage = () => {
                 key={category + index}
                 className="flex flex-col justify-end h-16 text-center bg-gray-300"
               >
-                <div className="py-2 font-bold">{category}</div>
+                <span className="py-2 font-bold">{category}</span>
               </div>
             )
           })}
@@ -166,12 +166,12 @@ const Home: NextPage = () => {
         />
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-x-8 gap-y-16 w-10/12">
+      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-x-8 gap-y-12 w-10/12">
         {courses.map((course) => {
           return (
-            <div key={course.id}>
+            <React.Fragment key={course.id}>
               <CourseCard cardData={course} />
-            </div>
+            </React.Fragment>
           )
         })}
       </div>
@@ -200,15 +200,6 @@ const Home: NextPage = () => {
                   )
                 })}
               </select>
-              <div className="flex absolute inset-y-0 right-0 items-center px-2 text-gray-400 pointer-events-none">
-                <svg
-                  className="w-4 h-4 fill-current"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 20 20"
-                >
-                  <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
-                </svg>
-              </div>
             </div>
             <div className=" whitespace-nowrap">de {page.total_pages}</div>
             <Button

@@ -23,7 +23,7 @@ const Button = ({
           ? ' pointer-events-none w-full px-4 py-2 text-xl font-semibold text-gray-400 bg-white border-2 border-gray-400 rounded-xl '
           : ' w-full px-4 py-2 text-xl font-semibold transition-all duration-200 ease-linear rounded-xl ' +
             (outline
-              ? ' text-gray-900  bg-white border-2 border-gray-900 hover:bg-gray-900 hover:text-white '
+              ? ' text-gray-900  bg-white border-2 border-gray-900 hover:bg-gray-900 hover:text-white ' + className
               : ' text-white  ' + className)
       }
     >

@@ -32,5 +32,22 @@ a {
   h4 {
     @apply text-2xl font-extrabold text-gray-900;
   }
-  /* ... */
+  h5 {
+    @apply text-lg font-bold;
+  }
+  label {
+    @apply font-medium text-lg;
+  }
+  p,
+  li,
+  ul,
+  ol {
+    @apply text-lg;
+  }
+
+  span,
+  select,
+  option {
+    @apply text-base whitespace-nowrap;
+  }
 }

@@ -22,7 +22,7 @@ export const ScoreBar = ({
         ></div>
       </div>
       <StarsScore size={size} />
-      <div className="w-12">{`${quantity}%`}</div>
+      <span className="w-12">{`${quantity}%`}</span>
     </div>
   )
 }
