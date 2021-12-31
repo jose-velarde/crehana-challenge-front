@@ -18,17 +18,26 @@ axios.defaults.withCredentials = true
 
 const Login = () => {
   const [showPassword, setShowPasword] = useState(false)
-  const [csrfToken, setCrsfToken] = useState('')
+  const [csrfToken, setCrsfToken] = useState<string | null>()
 
   useEffect(() => {
-    axios
-      .get(process.env.AUTH + 'crsf')
-      .then((res)=>{
-        const token = res.headers["X-CSRFToken"]
+    // axios
+    //   .get(process.env.AUTH + 'crsf')
+    //   .then((res)=>{
+    //     const token = res.headers["X-CSRFToken"]
+    //     console.log(res)
+    //     setCrsfToken(token)
+    //   })
+    //   .catch((err)=>{
+    //     console.error(err)
+    //   })
+    fetch(process.env.AUTH + 'crsf', { credentials: 'include' })
+      .then((res) => {
+        const token = res.headers.get('X-CSRFToken')
         console.log(res)
         setCrsfToken(token)
       })
-      .catch((err)=>{
+      .catch((err) => {
         console.error(err)
       })
   }, [])
