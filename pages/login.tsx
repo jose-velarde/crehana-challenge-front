@@ -14,7 +14,22 @@ import { Formik } from 'formik'
 import * as Yup from 'yup'
 import axios from 'axios'
 
-axios.defaults.withCredentials = true
+function getCookie(name: string) {
+  let cookieValue = null
+  console.log(document.cookie)
+  if (document.cookie && document.cookie !== '') {
+    const cookies = document.cookie.split(';')
+    for (let i = 0; i < cookies.length; i++) {
+      const cookie = cookies[i].trim()
+      // Does this cookie string begin with the name we want?
+      if (cookie.substring(0, name.length + 1) === name + '=') {
+        cookieValue = decodeURIComponent(cookie.substring(name.length + 1))
+        break
+      }
+    }
+  }
+  return cookieValue
+}
 
 const Login = () => {
   const [showPassword, setShowPasword] = useState(false)
@@ -31,9 +46,10 @@ const Login = () => {
     //   .catch((err)=>{
     //     console.error(err)
     //   })
-    fetch(process.env.AUTH + 'crsf', { credentials: 'include' })
+
+    fetch(process.env.AUTH + 'crsf/', { credentials: 'include' })
       .then((res) => {
-        const token = res.headers.get('X-CSRFToken')
+        const token = getCookie('csrftoken')
         console.log(res)
         setCrsfToken(token)
       })
@@ -64,6 +80,31 @@ const Login = () => {
           })}
           onSubmit={(values, { setSubmitting }) => {
             console.log(values)
+
+            axios
+              .post(
+                process.env.AUTH + 'login/',
+                // { headers: { 'X-CSRFToken': csrftoken } },
+                {
+                  // username: values.email,
+                  username: 'Jose',
+                  password: values.password,
+                }
+              )
+              .then((res) => console.log(res))
+              .catch((err) => console.error(err))
+
+            fetch(process.env.AUTH + 'login/', {
+              method: 'POST',
+              credentials: 'include',
+              body: JSON.stringify({
+                username: 'Jose',
+                password: values.password,
+              }),
+            })
+              .then((res) => console.log(res))
+              .catch((err) => console.error(err))
+
             setSubmitting(false)
           }}
         >
@@ -73,9 +114,10 @@ const Login = () => {
             touched,
             handleChange,
             handleBlur,
+            handleSubmit,
             isSubmitting,
           }) => (
-            <form>
+            <form onSubmit={handleSubmit}>
               <div className="flex flex-col gap-4 py-4 px-0">
                 <div className="relative w-full h-full">
                   {/* <label className="text-gray-700">Email address</label> */}
@@ -162,13 +204,19 @@ const Login = () => {
                       Acceder con Google
                     </div>
                   </Button>
-                  <Button className=" bg-blue-600 hover:bg-blue-700">
+                  <Button
+                    type="button"
+                    className=" bg-blue-600 hover:bg-blue-700"
+                  >
                     <div className="inline-flex gap-2 items-center">
                       <FaFacebook />
                       Acceder con Facebook
                     </div>
                   </Button>
-                  <Button className=" bg-gray-700 hover:bg-gray-600">
+                  <Button
+                    type="button"
+                    className=" bg-gray-700 hover:bg-gray-600"
+                  >
                     <div className="inline-flex gap-2 items-center">
                       <FaGithub />
                       Acceder con Github
